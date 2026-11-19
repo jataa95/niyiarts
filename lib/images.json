@@ -1,0 +1,172 @@
+{
+ "the-unwritten": {
+  "src": "/works/the-unwritten.jpg",
+  "width": 1332,
+  "height": 1601
+ },
+ "the-gathering": {
+  "src": "/works/the-gathering.jpg",
+  "width": 1500,
+  "height": 1125
+ },
+ "atlanta-art-fair-2026": {
+  "src": "/works/atlanta-art-fair-2026.jpg",
+  "width": 1080,
+  "height": 1435
+ },
+ "artist-with-the-gathering": {
+  "src": "/works/artist-with-the-gathering.jpg",
+  "width": 2000,
+  "height": 1454
+ },
+ "atlanta-booth-wall": {
+  "src": "/works/atlanta-booth-wall.jpg",
+  "width": 1440,
+  "height": 1920
+ },
+ "hands-of-unity-print": {
+  "src": "/works/hands-of-unity-print.jpg",
+  "width": 1440,
+  "height": 1694
+ },
+ "the-gathering-detail-1": {
+  "src": "/works/the-gathering-detail-1.jpg",
+  "width": 1500,
+  "height": 2000
+ },
+ "artist-signing-print": {
+  "src": "/works/artist-signing-print.jpg",
+  "width": 1440,
+  "height": 1695
+ },
+ "artist-holding-print": {
+  "src": "/works/artist-holding-print.jpg",
+  "width": 1440,
+  "height": 1695
+ },
+ "hands-of-unity-detail": {
+  "src": "/works/hands-of-unity-detail.jpg",
+  "width": 1440,
+  "height": 1695
+ },
+ "hands-of-unity-print-corner": {
+  "src": "/works/hands-of-unity-print-corner.jpg",
+  "width": 1440,
+  "height": 1695
+ },
+ "on-his-shoulders": {
+  "src": "/works/on-his-shoulders.jpg",
+  "width": 916,
+  "height": 1107
+ },
+ "the-gathering-detail-2": {
+  "src": "/works/the-gathering-detail-2.jpg",
+  "width": 1500,
+  "height": 2000
+ },
+ "the-best-version-of-myself": {
+  "src": "/works/the-best-version-of-myself.jpg",
+  "width": 1710,
+  "height": 2000
+ },
+ "self-confidence-cover": {
+  "src": "/works/self-confidence-cover.jpg",
+  "width": 2400,
+  "height": 1929
+ },
+ "self-confidence-1": {
+  "src": "/works/self-confidence-1.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "self-confidence-2": {
+  "src": "/works/self-confidence-2.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "united-roots-cover": {
+  "src": "/works/united-roots-cover.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "united-roots-1": {
+  "src": "/works/united-roots-1.jpg",
+  "width": 2400,
+  "height": 2400
+ },
+ "united-roots-2": {
+  "src": "/works/united-roots-2.jpg",
+  "width": 1440,
+  "height": 1800
+ },
+ "united-roots-3": {
+  "src": "/works/united-roots-3.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "united-roots-4": {
+  "src": "/works/united-roots-4.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "united-roots-5": {
+  "src": "/works/united-roots-5.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "narratives-cover": {
+  "src": "/works/narratives-cover.jpg",
+  "width": 1907,
+  "height": 2400
+ },
+ "narratives-1": {
+  "src": "/works/narratives-1.jpg",
+  "width": 1440,
+  "height": 1800
+ },
+ "narratives-2": {
+  "src": "/works/narratives-2.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "narratives-3": {
+  "src": "/works/narratives-3.jpg",
+  "width": 2400,
+  "height": 1778
+ },
+ "narratives-4": {
+  "src": "/works/narratives-4.jpg",
+  "width": 2400,
+  "height": 1924
+ },
+ "narratives-5": {
+  "src": "/works/narratives-5.jpg",
+  "width": 1916,
+  "height": 2400
+ },
+ "sovereign-cover": {
+  "src": "/works/sovereign-cover.jpg",
+  "width": 1800,
+  "height": 2400
+ },
+ "sovereign-1": {
+  "src": "/works/sovereign-1.jpg",
+  "width": 1922,
+  "height": 2400
+ },
+ "portrait-artist": {
+  "src": "/works/portrait-artist.jpg",
+  "width": 1905,
+  "height": 2400
+ },
+ "studio-apron": {
+  "src": "/works/studio-apron.jpg",
+  "width": 962,
+  "height": 1280
+ },
+ "studio-sovereign": {
+  "src": "/works/studio-sovereign.jpg",
+  "width": 1815,
+  "height": 2400
+ }
+}
