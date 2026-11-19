@@ -247,3 +247,154 @@ export const floating: { image: Img; slug: string }[] = [
   { image: img("self-confidence-1", "Green suit"), slug: "self-confidence" },
   { image: img("narratives-5", "The boat"), slug: "narratives-of-the-african-folks" },
 ];
+
+/* ------------------------------------------------------------------ */
+/*  Shop                                                               */
+/*  Sales are handled by enquiry. Update `availability` and `price`    */
+/*  per work (e.g. "Sold", "₦ / $ amount") — "On request" by default.  */
+/* ------------------------------------------------------------------ */
+
+export type Product = {
+  slug: string;
+  title: string;
+  kind: "Original" | "Print";
+  year?: string;
+  series?: string; // project slug
+  availability: "Available" | "Sold" | "Reserved" | "Enquire";
+  price: string;
+  summary: string;
+  details: { label: string; value: string }[];
+  images: Img[];
+};
+
+export const products: Product[] = [
+  {
+    slug: "united-roots-print",
+    title: "United Roots — Limited Edition Print",
+    kind: "Print",
+    series: "united-roots-prints",
+    availability: "Available",
+    price: "On request",
+    summary:
+      "Archival print of the United Roots painting of five brothers, hands joined as one — finished and signed by hand in the studio.",
+    details: [
+      { label: "Edition", value: "Limited" },
+      { label: "Finish", value: "Hand-finished & signed" },
+      { label: "Paper", value: "Archival, with white margin" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [
+      img("hands-of-unity-print", "United Roots print held up in the studio"),
+      img("artist-holding-print", "The artist holding the United Roots print"),
+      img("hands-of-unity-detail", "Close detail of the print surface"),
+      img("hands-of-unity-print-corner", "Print corner and margin"),
+      img("artist-signing-print", "The artist finishing a print by hand"),
+    ],
+  },
+  {
+    slug: "the-unwritten",
+    title: "The Unwritten",
+    kind: "Original",
+    year: "2026",
+    series: "the-unwritten",
+    availability: "Enquire",
+    price: "On request",
+    summary:
+      "Original painting, presented by Paul Conliffe at the Atlanta Art Fair 2026 (Booth D23, Pullman Yards).",
+    details: [
+      { label: "Year", value: "2026" },
+      { label: "Exhibited", value: "Atlanta Art Fair 2026" },
+      { label: "Medium & size", value: "On request" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [
+      img("the-unwritten", "The Unwritten"),
+      img("atlanta-booth-wall", "Installation view at the Atlanta Art Fair"),
+    ],
+  },
+  {
+    slug: "the-best-version-of-myself",
+    title: "The Best Version of Myself",
+    kind: "Original",
+    series: "self-confidence",
+    availability: "Enquire",
+    price: "On request",
+    summary:
+      "Original painting from the Self Confidence series — a woman reading, back to back with a girl holding a pinwheel.",
+    details: [
+      { label: "Series", value: "Self Confidence" },
+      { label: "Medium & size", value: "On request" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [img("the-best-version-of-myself", "The Best Version of Myself")],
+  },
+  {
+    slug: "on-his-shoulders",
+    title: "Untitled (On His Shoulders)",
+    kind: "Original",
+    year: "2026",
+    series: "the-unwritten",
+    availability: "Enquire",
+    price: "On request",
+    summary:
+      "Original painting, 2026 — a girl in a blue coat on her father’s shoulders above the crowd. Shown at the Atlanta Art Fair 2026.",
+    details: [
+      { label: "Year", value: "2026" },
+      { label: "Exhibited", value: "Atlanta Art Fair 2026" },
+      { label: "Medium & size", value: "On request" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [img("on-his-shoulders", "A girl on her father's shoulders in a crowd")],
+  },
+  {
+    slug: "the-gathering",
+    title: "Untitled (The Gathering)",
+    kind: "Original",
+    series: "narratives-of-the-african-folks",
+    availability: "Enquire",
+    price: "On request",
+    summary:
+      "Original painting from Narratives of the African Folks — six figures in colourful suits gathered around a laden table.",
+    details: [
+      { label: "Series", value: "Narratives of the African Folks" },
+      { label: "Medium & size", value: "On request" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [
+      img("the-gathering", "Six figures around a dinner table"),
+      img("the-gathering-detail-1", "Detail of the painting"),
+      img("the-gathering-detail-2", "Detail of the painting"),
+      img("artist-with-the-gathering", "The artist beside the painting"),
+    ],
+  },
+  {
+    slug: "the-sovereign",
+    title: "Untitled (The Sovereign)",
+    kind: "Original",
+    series: "the-sovereign-chronicles",
+    availability: "Enquire",
+    price: "On request",
+    summary:
+      "Original painting from The Sovereign Chronicles — a woman in a green suit and coral beads, seated on a red throne.",
+    details: [
+      { label: "Series", value: "The Sovereign Chronicles" },
+      { label: "Medium & size", value: "On request" },
+      { label: "Ships from", value: "Lagos, Nigeria" },
+    ],
+    images: [
+      img("sovereign-cover", "Seated on the red throne"),
+      img("studio-sovereign", "The artist beside the painting in the studio"),
+    ],
+  },
+];
+
+export const getProduct = (slug: string) => products.find((p) => p.slug === slug);
+
+export const enquiryTypes = [
+  "Purchase a work",
+  "Prints",
+  "Commission",
+  "Exhibition",
+  "Press",
+  "Other",
+] as const;

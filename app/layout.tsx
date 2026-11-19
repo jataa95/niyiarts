@@ -34,17 +34,21 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ffffff",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: dark)", color: "#0d0c0b" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={switzer.variable} suppressHydrationWarning>
       <head>
-        {/* Runs before first paint: skip the preloader if it has played this session */}
+        {/* Runs before first paint: apply the saved/system theme, and skip the
+            preloader if it has already played this session */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `try{if(sessionStorage.getItem("niyi-seen"))document.documentElement.classList.add("is-ready","no-loader")}catch(e){document.documentElement.classList.add("is-ready","no-loader")}`,
+            __html: `(function(){var d=document.documentElement;try{d.dataset.theme=localStorage.getItem("niyi-theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){d.dataset.theme="light"}})();try{if(sessionStorage.getItem("niyi-seen"))document.documentElement.classList.add("is-ready","no-loader")}catch(e){document.documentElement.classList.add("is-ready","no-loader")}`,
           }}
         />
         <noscript>
