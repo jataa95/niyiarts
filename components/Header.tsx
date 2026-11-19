@@ -8,11 +8,11 @@ import ThemeToggle from "@/components/ThemeToggle";
 import { img, projects, site } from "@/lib/content";
 
 const links = [
-  { href: "/", label: "Home", preview: img("the-unwritten", "") },
-  { href: "/work", label: "Work", preview: img("the-gathering", "") },
-  { href: "/shop", label: "Shop", preview: img("hands-of-unity-print", "") },
-  { href: "/info", label: "Info", preview: img("studio-apron", "") },
-  { href: "/contact", label: "Contact", preview: img("studio-sovereign", "") },
+  { href: "/", label: "Home", note: "Selected paintings", preview: img("the-unwritten", "") },
+  { href: "/work", label: "Work", note: `${projects.length} series`, preview: img("the-gathering", "") },
+  { href: "/shop", label: "Shop", note: "Originals & prints", preview: img("hands-of-unity-print", "") },
+  { href: "/info", label: "Info", note: "Biography & press", preview: img("studio-apron", "") },
+  { href: "/contact", label: "Contact", note: "Enquiries", preview: img("studio-sovereign", "") },
 ];
 
 const isActive = (pathname: string, href: string) =>
@@ -145,6 +145,7 @@ export default function Header() {
           </nav>
 
           <aside className="menu-aside">
+            <div className="menu-preview-wrap">
             <div className="menu-preview">
               {opened && links.map((l, i) => (
                 <div key={l.href} className={`mp-slide${shown === i ? " on" : ""}`}>
@@ -158,6 +159,11 @@ export default function Header() {
                   />
                 </div>
               ))}
+            </div>
+            <p className="menu-preview-cap">
+              <span>{links[shown].label}</span>
+              <span>{links[shown].note}</span>
+            </p>
             </div>
             <div className="menu-series">
               <p className="small">Series</p>
