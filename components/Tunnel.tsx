@@ -94,6 +94,8 @@ export default function Tunnel({ items }: { items: Item[] }) {
     const boost = (d: number) => {
       vel = Math.max(-2400, Math.min(2400, vel + d));
     };
+    // Rush forward when the preloader hands over to the page
+    const onReady = () => !reduce && boost(2400);
     const onWheel = (e: WheelEvent) => {
       e.preventDefault();
       boost(e.deltaY * 2.2);
@@ -120,6 +122,7 @@ export default function Tunnel({ items }: { items: Item[] }) {
       vh = window.innerHeight;
     };
 
+    window.addEventListener("niyi:ready", onReady);
     window.addEventListener("wheel", onWheel, { passive: false });
     window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("touchmove", onTouchMove, { passive: true });
@@ -131,6 +134,7 @@ export default function Tunnel({ items }: { items: Item[] }) {
 
     return () => {
       cancelAnimationFrame(raf);
+      window.removeEventListener("niyi:ready", onReady);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("touchmove", onTouchMove);

@@ -768,3 +768,192 @@ figcaption {
     font-size: 14px;
   }
 }
+
+/* ---------- Preloader ---------- */
+
+html:not(.is-ready) {
+  overflow: hidden;
+}
+html:not(.is-ready) .home-title h1 span > span,
+html:not(.is-ready) .p-hero img {
+  animation-play-state: paused;
+}
+.no-loader .preloader {
+  display: none;
+}
+
+.preloader {
+  --fw: clamp(150px, 15vw, 236px);
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: var(--ink);
+  color: #fff;
+  overflow: hidden;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1.15s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.preloader.is-leaving {
+  clip-path: inset(0 0 100% 0);
+  pointer-events: none;
+}
+
+.pl-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+}
+.pl-mask > span {
+  display: inline-block;
+  animation: rise 1.1s var(--ease) 0.15s backwards;
+  transition: transform 0.7s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.preloader:not(.is-loading) .pl-mask > span {
+  transform: translateY(110%);
+}
+
+.pl-top,
+.pl-bottom {
+  position: absolute;
+  left: calc(var(--pad) + 4px);
+  right: calc(var(--pad) + 4px);
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  z-index: 3;
+  font-weight: 700;
+}
+.pl-top {
+  top: var(--pad);
+}
+.pl-bottom {
+  bottom: calc(var(--pad) - 0.06em);
+}
+.pl-note {
+  font-size: 13px;
+  line-height: 1.3;
+  color: #8a8a8a;
+  padding-bottom: 0.4em;
+}
+
+.pl-count {
+  display: inline-flex;
+  font-size: clamp(88px, 17vw, 300px);
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.pl-digit {
+  display: inline-block;
+  height: 1em;
+  overflow: hidden;
+  margin-right: -0.02em;
+}
+.pl-digit > span {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.65s var(--ease);
+}
+.pl-digit > span > span {
+  display: block;
+  height: 1em;
+  text-align: center;
+}
+
+.pl-stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  z-index: 2;
+}
+.pl-frame {
+  position: relative;
+  width: var(--fw);
+  height: calc(var(--fw) * 1.25);
+  overflow: hidden;
+  background: #1d1d1d;
+  animation: pl-frame-in 1.2s var(--ease) both;
+  transition: width 1.15s cubic-bezier(0.76, 0, 0.24, 1), height 1.15s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.preloader:not(.is-loading) .pl-frame {
+  width: 100vw;
+  height: 100svh;
+}
+@keyframes pl-frame-in {
+  from {
+    clip-path: inset(50% 50% 50% 50%);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+.pl-slide {
+  position: absolute;
+  inset: 0;
+  clip-path: inset(100% 0 0 0);
+  transition: clip-path 0.75s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.pl-slide.on {
+  clip-path: inset(0 0 0 0);
+}
+.pl-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.18);
+  transition: transform 1.4s var(--ease);
+}
+.pl-slide.on img {
+  transform: scale(1);
+}
+
+.pl-caption {
+  position: absolute;
+  top: calc(50% + var(--fw) * 0.625 + 14px);
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.pl-swap {
+  animation: rise 0.6s var(--ease) both !important;
+}
+
+.pl-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: #fff;
+  transform-origin: left;
+  transition: transform 0.25s linear, opacity 0.4s ease;
+  z-index: 4;
+}
+.preloader:not(.is-loading) .pl-bar {
+  opacity: 0;
+}
+
+@media (max-width: 700px) {
+  .preloader {
+    --fw: 46vw;
+  }
+}
+.pl-caption {
+  transition: opacity 0.4s ease;
+}
+.preloader:not(.is-loading) .pl-caption {
+  opacity: 0;
+}
+/* let "100" land before the counter drops away and the frame opens */
+.preloader:not(.is-loading) .pl-bottom .pl-mask > span {
+  transition-delay: 0.35s;
+}
+.preloader:not(.is-loading) .pl-frame {
+  transition-delay: 0.2s;
+}

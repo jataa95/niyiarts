@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import Header from "@/components/Header";
+import Preloader from "@/components/Preloader";
 import { site } from "@/lib/content";
 import "./globals.css";
 
@@ -38,8 +39,20 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={switzer.variable}>
+    <html lang="en" className={switzer.variable} suppressHydrationWarning>
+      <head>
+        {/* Runs before first paint: skip the preloader if it has played this session */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(sessionStorage.getItem("niyi-seen"))document.documentElement.classList.add("is-ready","no-loader")}catch(e){document.documentElement.classList.add("is-ready","no-loader")}`,
+          }}
+        />
+        <noscript>
+          <style>{`.preloader{display:none}html{overflow:auto!important}.home-title h1 span>span,.p-hero img{animation-play-state:running!important}`}</style>
+        </noscript>
+      </head>
       <body>
+        <Preloader />
         <Header />
         {children}
       </body>
