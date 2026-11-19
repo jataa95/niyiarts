@@ -93,7 +93,7 @@ export default function Header() {
           {site.name}
         </Link>
         <div className="header-actions">
-          <ThemeToggle />
+          <ThemeToggle short />
           <button
             className={`burger${open ? " is-open" : ""}`}
             onClick={() => setOpen((o) => !o)}

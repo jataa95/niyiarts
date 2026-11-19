@@ -5,7 +5,16 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 const KEY = "niyi-theme";
 
-export default function ThemeToggle({ className = "", withLabel = false }: { className?: string; withLabel?: boolean }) {
+export default function ThemeToggle({
+  className = "",
+  withLabel = false,
+  short = false,
+}: {
+  className?: string;
+  withLabel?: boolean;
+  /** compact rolling "Dark" / "Light" label, used in the header */
+  short?: boolean;
+}) {
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
@@ -63,6 +72,12 @@ export default function ThemeToggle({ className = "", withLabel = false }: { cla
     >
       <span className="theme-icon" aria-hidden />
       {withLabel && <span className="theme-text">{theme === "dark" ? "Light mode" : "Dark mode"}</span>}
+      {short && (
+        <span className={`theme-roll${theme === "dark" ? " is-dark" : ""}`} aria-hidden>
+          <span>Dark</span>
+          <span>Light</span>
+        </span>
+      )}
     </button>
   );
 }
